@@ -264,7 +264,7 @@ div img {
 }
 
 .chat-message-received a {
-  text-decoration: none;
+  /* text-decoration: none; */
   color: #AD5B5D;
 }
 

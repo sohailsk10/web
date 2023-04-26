@@ -71,7 +71,6 @@ function addMsg(_msg, _spell_check = true) {
 
   prev_msg = document.getElementById('message-box').children[document.getElementById('message-box').children.length - 3].textContent;
   console.log('PREV MSG', prev_msg);
-  //console.log(document.getElementById('message-box').children[document.getElementById('message-box').children.length - 3]);
 
   if (msg.toLowerCase() == "yes") {
     if (prev_msg == "Yes / No") {
@@ -103,12 +102,9 @@ function addMsg(_msg, _spell_check = true) {
       removeLoader();
       var length_ = document.getElementById('message-box').children;
       // send wrong answer to db
-      // console.log(length_);
-      // console.log(length_[length_.length - 4].textContent);
       var ques = length_[length_.length - 4].textContent;
       var ans = response_list[0];
       var intent = intents_list[0];
-      // console.log(ques, ans);
       var data = { 'user_email': email, 'event_type': '', 'event_question': ques, 'event_answer': ans, 'intent': intent };
       fetch(server_api + "/wrong_answer/", {
         method: "POST",
@@ -124,7 +120,7 @@ function addMsg(_msg, _spell_check = true) {
     else if (prev_msg.includes('Did you mean')) {
       removeLoader();
       _msg = document.getElementById('message-box').children[document.getElementById('message-box').children.length - 3].textContent;
-      console.log('MSG', _msg);
+      // console.log('MSG', _msg);
       addMsg(_msg, false);
     }
   }
@@ -133,10 +129,10 @@ function addMsg(_msg, _spell_check = true) {
 }
 
 function addOnlyMsg(msg) {
-  console.log("Message" +  msg)
+  // console.log("Message" +  msg)
   var _tmp = msg.split("`");
-  console.log(_tmp);
-  console.log(_tmp[1]);
+  // console.log("138", _tmp);
+  // console.log("139", _tmp[1]);
   _spell = false;
   var div = document.createElement("div");
   div.innerHTML = "<span style='flex-grow:1'></span><div class='chat-message-sent'>" + _tmp[0] + "'<b style='text-decoration: underline;cursor: pointer;' onclick='addMsg(this,false)'>" + _tmp[1] + "</b>'</div>";
@@ -164,7 +160,7 @@ function sendInputToWatson(input, _spell) {
     res.text().then(function (text) {
       if (res.status == 200) {
         removeLoader();
-        console.log(JSON.parse(text));
+        // console.log(JSON.parse(text));
 
         if (JSON.parse(text).intent != "spell") {
           response_list.push(JSON.parse(text).answer);
@@ -178,6 +174,9 @@ function sendInputToWatson(input, _spell) {
               intents_list = [];
               response_list.push(JSON.parse(text).answer);
               intents_list.push(JSON.parse(text).intent);
+              // const linkRegex = /(https?:\/\/[^\s]+)/g;
+              // const links = paragraph.match(linkRegex);
+              // console.log(links);
             }
           }
         }
@@ -191,7 +190,7 @@ function sendInputToWatson(input, _spell) {
         // console.log(JSON.parse(text).answer.toLowerCase());
         // console.log(sorry);
         // console.log(JSON.parse(text).answer.toLowerCase() == sorry);
-        console.log(response_list);
+        // console.log("194", response_list);
 
         if (JSON.parse(text).answer.toLowerCase() == sorry.toLowerCase()) {
           var _data1 = { 'user_email': email, 'event_type': no_answer_id, 'event_question': input, 'event_answer': "Sorry, We could not recognize the question you've asked for. Kindly let us know if we help with anything else.", 'session_value': '', 'intent': dept_custom };
@@ -216,7 +215,6 @@ function sendInputToWatson(input, _spell) {
                 addResponseMsgWithUrl(JSON.parse(text).answer, JSON.parse(text).url, true, _data1, input);
               }
               else {
-                console.log("218")
                 var _data1 = { 'user_email': email, 'event_type': right_answer_id, 'event_question': input, 'event_answer': JSON.parse(text).answer, 'session_value': '', 'intent': JSON.parse(text).intent };
                 addResponseMsg(JSON.parse(text).answer, false, _data1);
               }
@@ -286,7 +284,7 @@ function sendInputToWatson(input, _spell) {
 
           else if (JSON.parse(text).intent == "Greetings") {
             var data = { 'user_email': email, 'event_type': greeting_id, 'event_question': input, 'event_answer': JSON.parse(text).answer, 'session_value': '', 'intent': JSON.parse(text).intent };
-            console.log(data);
+            // console.log(data);
             addResponseMsg(JSON.parse(text).answer, true, data);
           }
 
@@ -404,7 +402,30 @@ function removeLoader() {
   message_box.lastChild.remove();
 }
 
-function addResponseMsg(msg, _commit, _data) {
+function addLink(str) {
+  // Regular expression to match URLs
+  var urlRegex = /(https?:\/\/[^\s]+)/g;
+  
+  // Replace URLs with hyperlinks
+  return str.replace(urlRegex, function(url) {
+    return '<a href="' + url + '"target = "_blank">'  + url + '</a>';
+  });
+}
+
+function addLink_email(str) {
+  // Regular expression to match URLs
+  var urlRegex = /([a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9._-]+)/g;
+  
+  // Replace URLs with hyperlinks
+  return str.replace(urlRegex, function(url) {
+    return '<a href="mailto:' + url + '">'  + url + '</a>';
+  });
+}
+
+
+function addResponseMsg(msg_, _commit, _data) {
+  var link_msg = addLink(msg_);
+  var msg = addLink_email(link_msg);
   var div = document.createElement("div");
   div.innerHTML = "<div class='chat-message-received'>" + msg + "</div>";
   div.className = "chat-message-div";
@@ -430,7 +451,7 @@ function addResponseMsgWithUrl(msg, url, _commit, _data, _input) {
 
   var urls = ""
 
-  console.log(url);
+  // console.log(url);
 
   url.forEach(element => {
     urls += "<a href='" + element + "' target='_blank' style='text-decoration: underline; color: blue;'>" + element + "</a><br /><br />"
@@ -451,7 +472,7 @@ function addResponseMsgWithUrl(msg, url, _commit, _data, _input) {
     _urls += element + "\n"
   });
 
-  console.log(_urls);
+  // console.log(_urls);
 
   var _data = { 'user_email': email, 'event_type': right_answer_id, 'event_question': _input, 'event_answer': _urls, 'session_value': '', 'intent': 'General' };
 
@@ -552,7 +573,7 @@ function validateEmail2(mail) {
 }
 
 function checkForm() {
-  console.log("In Check form")
+  // console.log("In Check form")
   user_name = document.getElementById("user-name").value;
   email = document.getElementById("user-email").value;
 
