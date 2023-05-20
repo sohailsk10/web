@@ -1,0 +1,113 @@
+﻿:root {
+    --primary-zu-color: #8c1f2f;
+    --primary-dark-grey: #343434;
+    --primary-light-grey: #f2f2f2;
+    --primary-boxes-light-grey: #868686;
+    --primary-bgs-light-grey: #f0f0f0;
+    --header-light-grey: #f8f8f8;
+    --header-grey: #dedfdf;
+    --header-dark-grey: #d0cfd0;
+    --header-icon-color: #6d6d6d;
+    --header-upper-link: #a0a0a0;
+    --white-color: #fff;
+    --border-color: #cccccc;
+    --highlight-color: #f0e68c;
+}
+
+@font-face {
+    font-family: zu-regular;
+    src: url('../fonts/GothamBook.ttf') format('truetype'), url('../fonts/GothamBook.woff2') format('woff2'), url('../fonts/GothamBook.woff') format('woff');
+}
+
+@font-face {
+    font-family: zu-Medium;
+    src: url('../fonts/GothamMedium.ttf') format('truetype'), url('../fonts/GothamMedium.woff2') format('woff2'), url('../fonts/GothamMedium.woff') format('woff');
+}
+
+@font-face {
+    font-family: zu-semiBold;
+    src: url('../fonts/GothamBold.ttf') format('truetype'), url('../fonts/GothamBold.woff2') format('woff2'), url('../fonts/GothamBold.woff') format('woff');
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    font-size: 14px;
+}
+
+body {
+    overflow-x: hidden !important;
+    font-size: 14px; /* 14px = 1.0em */
+    font-family: zu-regular;
+}
+
+h1, h2, h3, .page-content h1, .page-content h2, .page-content h3 {
+    color: var(--primary-zu-color);
+    /* no bold but font-size increase*/
+    font-family: zu-semiBold;
+    font-size: 1.40rem;
+}
+
+h2, .page-content h2 {
+    font-size: 1.30rem;
+}
+
+h3, .page-content h3 {
+    font-size: 1.20rem;
+}
+
+
+h4, h5, h6, h7, .page-content h4, .page-content h5, .page-content h6, .page-content h7 {
+    color: var(--primary-dark-grey);
+    /*bold */
+    font-size: 1.15rem;
+}
+
+p, .page-content p {
+    color: var(--primary-dark-grey);
+    /* no bold*/
+}
+
+text {
+    font-family: zu-Medium;
+}
+
+a:focus {
+}
+
+.page-content a:hover {
+    color: var(--primary-zu-color);
+}
+
+.zuBtnMain {
+	 position: absolute;
+  right: 0;
+  border: none;
+  height: 48px;
+  width: 48px;
+    border: solid 2px var(--primary-zu-color);
+    background-color: transparent;
+    color: var(--primary-zu-color) !important;
+    justify-content: center;
+    padding: 0px 30px;
+    line-height: 40px;
+    border-radius: 0px;
+    font-family: zu-Medium;
+    font-size: 1.0rem;
+    transition: all .5s ease-out 1s;
+}
+
+.zuBtn {
+	 border: solid 2px var(--primary-zu-color);
+    background-color: transparent;
+    color: var(--primary-zu-color) !important;
+    justify-content: center;
+    padding: 0px 30px;
+    width: auto;
+    height: auto;
+    line-height: 40px;
+    border-radius: 0px;
+    font-family: zu-Medium;
+    font-size: 1.0rem;
+    transition: all .5s ease-out 1s;
+}
+

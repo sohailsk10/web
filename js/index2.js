@@ -403,12 +403,15 @@ function removeLoader() {
 }
 
 function addLink(str) {
-  // Regular expression to match URLs
-  var urlRegex = /(https?:\/\/[^\s]+)/g;
-  
-  // Replace URLs with hyperlinks
-  return str.replace(urlRegex, function(url) {
-    return '<a href="' + url + '"target = "_blank">'  + url + '</a>';
+  // var urlRegex = /(\b(https?|ftp|file):\/\/|\bwww\.)[^\s()<>]+(?:\([\w\d]+\)|([^[:punct:]\s]|\/))/g;
+  let regex = /(?:https?|ftp):\/\/[\n\S]+|www[\n\S]+/gi;
+  // return str.replace(urlRegex, function(url) {
+  //   return '<a href="' + url + '"target = "_blank">'  + url + '</a>';
+  // });
+
+  return str.replace(regex, function (match) {
+    let url = match.startsWith("http") ? match : "https://" + match;
+    return '<a href="' + url + '"target = "_blank">' + match + '</a>';
   });
 }
 
@@ -421,6 +424,19 @@ function addLink_email(str) {
     return '<a href="mailto:' + url + '">'  + url + '</a>';
   });
 }
+
+// function formatList(originalList) {
+//   const newList = [];
+//   for (let i = 0; i < originalList.length; i++) {
+//     if (originalList[i].startsWith('•')) {
+//       newList[newList.length - 1] += '<br>' + originalList[i];
+//     } else {
+//       newList.push(originalList[i]);
+//     }
+//   }
+//   const formattedList = newList.join('<br>');
+//   return formattedList;
+// }
 
 
 function addResponseMsg(msg_, _commit, _data) {
