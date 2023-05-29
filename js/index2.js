@@ -4,8 +4,8 @@ var running = false,
   name = "",
   email = "",
   dept_custom = "Custom"
-  server_api = 'https://ac-cbfe-d1.zu.ac.ae/chatbot',
-  // server_api = 'http://127.0.0.1:8000/chatbot',
+  // server_api = 'https://ac-cbfe-d1.zu.ac.ae/chatbot',
+  server_api = 'http://127.0.0.1:8000/chatbot',
   greeting_id = "8",
   reset_id='7',
   livechat_id = "6",
@@ -131,11 +131,9 @@ function addMsg(_msg, _spell_check = true) {
 function addOnlyMsg(msg) {
   // console.log("Message" +  msg)
   var _tmp = msg.split("`");
-  // console.log("138", _tmp);
-  // console.log("139", _tmp[1]);
   _spell = false;
   var div = document.createElement("div");
-  div.innerHTML = "<span style='flex-grow:1'></span><div class='chat-message-sent'>" + _tmp[0] + "'<b style='text-decoration: underline;cursor: pointer;' onclick='addMsg(this,false)'>" + _tmp[1] + "</b>'</div>";
+  div.innerHTML = "<span style='flex-grow:1'></span><div class='chat-message-sent'>" + _tmp[0] + "'<b style='text-decoration: underline;cursor: pointer;' onclick='addMsg(this,false)'>" + _tmp[1] + "</b>' "+_tmp[2]+" </div>";
   div.className = "chat-message-div";
   document.getElementById("message-box").appendChild(div);
 
@@ -233,7 +231,7 @@ function sendInputToWatson(input, _spell) {
 
             else if (JSON.parse(text).intent.toLowerCase() == "spell") {
               var _data1 = {};
-              addOnlyMsg("Did you mean `" + JSON.parse(text).answer + "`. Please type Yes or No.");
+              addOnlyMsg("Did you mean `" + JSON.parse(text).answer + "`. Please type 'Yes' or 'No'.");
             }
             
 
