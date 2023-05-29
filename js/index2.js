@@ -4,8 +4,8 @@ var running = false,
   name = "",
   email = "",
   dept_custom = "Custom"
-  // server_api = 'https://ac-cbfe-d1.zu.ac.ae/chatbot',
-  server_api = 'http://127.0.0.1:8000/chatbot',
+  server_api = 'https://ac-cbfe-d1.zu.ac.ae/chatbot',
+  // server_api = 'http://127.0.0.1:8000/chatbot',
   greeting_id = "8",
   reset_id='7',
   livechat_id = "6",
@@ -79,7 +79,6 @@ function addMsg(_msg, _spell_check = true) {
     else if (prev_msg == "Are you satisfied with the Chatbot's Response? Answer with 'Yes' or 'No'.") {
       removeLoader();
       var length_ = document.getElementById('message-box').children;
-      // console.log("LENGHT" + length_)
       var ques = length_[length_.length - 4].textContent;
       var _data1 = { 'user_email': email, 'event_type': greeting_id, 'event_question': ques, 'event_answer': "Thank You for your co-operations with us.", 'session_value': '', 'intent': dept_custom };
       var _data2 = { 'user_email': email, 'event_type': greeting_id, 'event_question': ques, 'event_answer': "Please feel free to ask any other questions.", 'session_value': '', 'intent': dept_custom };
