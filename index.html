@@ -5,57 +5,65 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Zayed University</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/style2.css">
 
 </head>
 
 <body>
-<img src="images/bg.PNG"/>
-<!--<div id="message">-->
+    <img src="images/bg.PNG" />
+    <!--<div id="message">-->
 
 
-<div id="chatbot" class="main-card collapsed">
-    <button id="chatbot_toggle">
-        <ion-icon name="chatbubbles-outline" size="small" id="open"></ion-icon>
-        <ion-icon name="close-outline" size="small" class="close" id="close"></ion-icon>
-    </button>
-    <div class="main-title">
-        <div>
-           <img src="images/logo.png"/>
-        </div>
-        <span>AI Chatbot</span>
-        <ion-icon name="refresh-sharp" class="refreshbtn" id="refreshbtn" onclick="clear_chatbot()"></ion-icon>
-
-    </div>
-    <div class="cred-form active" id="cred-form">
-    <form onsubmit="return false">
-        <!-- <div class="user-form">-->
-        <div class="user-form">
-            <input type="text" placeholder="Name" id="user-name" required autocomplete="on"/>
-            <input type="email" placeholder="Email Address" id="user-email" required autocomplete="on"/>
-            <input type="submit" value="Start" id="user-submit" onclick="checkForm()">
-        </div>
-    </form>
-    </div>
-    <div class="chat-area" id="message-box">
-    </div>
-    <div class="line"></div>
-    <div class="input-div">
-        <button onclick="startSr()" class="input-mic" size="large">
-            <ion-icon name="mic"></ion-icon>
+    <div id="chatbot" class="main-card collapsed">
+        <button id="chatbot_toggle">
+            <ion-icon name="chatbubbles-outline" size="small" id="open"></ion-icon>
+            <ion-icon name="close-outline" size="small" class="close" id="close"></ion-icon>
         </button>
-        <input class="input-message" name="message" type="text" id="message" placeholder="Type your message..."/>
-        <button class="input-send" onclick="send()">
-            <ion-icon name="send"></ion-icon>
-        </button>
+        <div class="main-title">
+            <div>
+                <img class="bot_icon" src="images/bot.png" />
+                <!-- <i class="fa-bot fa-solid fa-robot"></i> -->
+            </div>
+            <span>Zayed University ChatBot</span>
+            <ion-icon name="refresh-sharp" class="refreshbtn" id="refreshbtn" onclick="clear_chatbot()"></ion-icon>
+
+        </div>
+        <div class="cred-form active" id="cred-form">
+            <!-- <i class='fa-user fa fa-user-circle-o'></i> -->
+            </i><img class="user_icon" src="images/user_icon.png" /></i>
+            <form onsubmit="return false">
+                <div class="user-form sub-card">
+                    <p class="form_header">Welcome! Please fill the form<br>below before starting the chat.</p>
+                    <input type="text" placeholder="Name" id="user-name" required autocomplete="on" />
+                    <input type="email" placeholder="E-mail" id="user-email" required autocomplete="on" />
+                    <button class="button" type="submit" placeholder="Start the chat" id="user-submit"
+                        onclick="checkForm()">Start the chat
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="chat-area" id="message-box">
+            
+        </div>
+        <div class="line"></div>
+        <div class="input-div">
+            <button onclick="startSr()" class="input-mic">
+                <ion-icon name="mic-outline"></ion-icon>
+            </button>
+            <div class="vertical_line"></div>
+            <input class="input-message" name="message" type="text" id="message" placeholder="Type your message..." />
+            <button class="input-send" onclick="send()">
+                <ion-icon name="play-circle"></ion-icon>
+            </button>
+        </div>
     </div>
-</div>
-<script src="js/index2.js"></script>
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="js/index2.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>

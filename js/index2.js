@@ -4,8 +4,8 @@ var running = false,
   name = "",
   email = "",
   dept_custom = "Custom"
-  server_api = 'https://ac-cbfe-d1.zu.ac.ae/chatbot',
-  // server_api = 'http://127.0.0.1:8000/chatbot',
+  // server_api = 'https://ac-cbfe-d1.zu.ac.ae/chatbot',
+  server_api = 'http://127.0.0.1:8000/chatbot',
   greeting_id = "8",
   reset_id='7',
   livechat_id = "6",
@@ -44,11 +44,20 @@ function startSr() {
   }
 }
 
+function add_user_info(name, email){
+  var div = document.createElement("div");
+  div.innerHTML = "<div class='image_container'><img class='user_icon' src='images/user_icon.png' /></div><div class='enter_value'>Name:</div><div class='entered_value'>" + name +"</div><div class='enter_value'>E-mail:</div><div class='entered_value'>" + email +"</div>"
+  div.className = "user_info";
+  document.getElementById("message-box").appendChild(div);
+}
+
+
 function addMsg(_msg, _spell_check = true) {
   var msg = _msg.textContent;
   if (msg === undefined) {
     msg = _msg;
   }
+
 
   var div = document.createElement("div");
   div.innerHTML =
@@ -611,7 +620,8 @@ function checkForm() {
         document.getElementById("chatbot").children[5].style.display = ""
 
         if (checkWelcomeMsg()) {
-          setTimeout(addResponseMsg, 500, "Hi " + user_name + ", This is Zayed University AI Chatbot.")
+          add_user_info(user_name, email);
+          setTimeout(addResponseMsg, 500, "Hi " + user_name + ". This is the Zayed University AI Chatbot.")
         }
         document.getElementById("message").focus();
       }
