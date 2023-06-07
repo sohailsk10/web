@@ -518,8 +518,9 @@ div img {
 
 .chat-message-received a {
   /* text-decoration: none; */
-  color: var(--primary-zu-color);
+  /* color: var(--primary-zu-color); */
   /* color: #AD5B5D; */
+  color: rgb(147, 147, 248)
 }
 
 .loader {
