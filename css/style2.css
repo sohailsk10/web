@@ -170,6 +170,7 @@ div img {
 
 .main-title {
   background-color: rgba(255, 255, 255, 1);
+  padding: 0px 0px 30px 0px;
   /* color: var(--color-code); */
   font-size: small;
   /* font-weight: bold; */
@@ -397,6 +398,7 @@ div img {
   height: 90px;
   display: flex;
   background-color: white;
+  padding: 8px 0px;
 }
 
 .input-div .vertical_line {
