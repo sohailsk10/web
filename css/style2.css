@@ -477,7 +477,7 @@ div img {
   background-color: white;
   background-color: lightgreen;
   border-radius: 8px;
-  border: 2px solid #6c6;
+  /* border: 2px solid #6c6; */
   transition: width 1s ease;
 }
 
