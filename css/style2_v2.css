@@ -66,7 +66,7 @@ span {
 h2,
 .page-content h2,
 span {
-  font-size: 1.25rem;
+  font-size: 1.30rem;
 }
 
 h3,
@@ -170,20 +170,19 @@ div img {
 
 .main-title {
   background-color: rgba(255, 255, 255, 1);
+  padding: 0px 0px 30px 0px;
   /* color: var(--color-code); */
   font-size: small;
   /* font-weight: bold; */
   margin-right: 20px;
   display: flex;
-  /* height: 115px; */
+  height: 115px;
   width: 100%;
-  padding: 0px 0px 30px 0px;
 }
 
 .main-title .refreshbtn {
   font-size: 20px;
   padding: 12px;
-  display: none;
 }
 
 .main-title>div {
@@ -200,7 +199,7 @@ div img {
 
 .main-title>span {
   color: black;
-  margin: 30px auto auto 30px;
+  margin: auto auto auto 30px;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -239,7 +238,7 @@ div img {
   color: black;
   padding-left: 25px;
   padding-top: 25px;
-  font-size: 15px;
+  font-size: 19px;
 }
 
 .user_info .entered_value {
@@ -396,6 +395,7 @@ div img {
 }
 
 .input-div {
+  height: 90px;
   display: flex;
   background-color: white;
   padding: 8px 0px;
@@ -430,10 +430,9 @@ div img {
 
 .input-send ion-icon,
 .input-mic ion-icon {
-  font-size: 38px;
+  font-size: 40px;
   color: var(--color-code);
-  padding: -1px;
-  /* padding: 2px 5px 0px 1px; */
+  padding: 10px;
 }
 
 .input-mic {
@@ -441,8 +440,8 @@ div img {
 }
 
 .input-send ion-icon {
-  padding: 2px 5px 0px 1px;
-  font-size: 45px;
+  padding: 9px 0px 0px 0px;
+  font-size: 50px;
 }
 
 .input-send svg {
@@ -521,8 +520,9 @@ div img {
 
 .chat-message-received a {
   /* text-decoration: none; */
-  color: var(--primary-zu-color);
+  /* color: var(--primary-zu-color); */
   /* color: #AD5B5D; */
+  color: rgb(147, 147, 248)
 }
 
 .loader {
