@@ -521,7 +521,8 @@ div img {
 
 .chat-message-received a {
   /* text-decoration: none; */
-  color: var(--primary-zu-color);
+  /* color: var(--primary-zu-color); */
+  color: blue;
   /* color: #AD5B5D; */
 }
 
